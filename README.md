@@ -1,6 +1,6 @@
 # Network validator for Golang
 
-[![Build Status](https://travis-ci.org/ervitis/networkvalidator.svg?branch=master)](https://travis-ci.org/ervitis/networkvalidator) 
+[![Build Status](https://travis-ci.org/ervitis/networkvalidator.svg?branch=master)](https://travis-ci.org/ervitis/networkvalidator) [![codecov](https://codecov.io/gh/ervitis/networkvalidator/branch/master/graph/badge.svg)](https://codecov.io/gh/ervitis/networkvalidator)
 
 Utilities for validation network
 
