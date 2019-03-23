@@ -1,5 +1,7 @@
 # Network validator for Golang
 
+[![Build Status](https://travis-ci.org/ervitis/networkvalidator.svg?branch=master)](https://travis-ci.org/ervitis/networkvalidator) 
+
 Utilities for validation network
 
 Example:
