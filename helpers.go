@@ -6,10 +6,14 @@ import (
 	"net"
 )
 
-func getiprange(ipnet *net.IPNet) *rangeIp {
+func getiprange(ipnet *net.IPNet, mask *net.IPMask) *rangeIp {
+	if ipnet == nil || mask == nil {
+		return nil
+	}
+
 	fip := inc(ipnet.IP)
 
-	l, bits := ipnet.Mask.Size()
+	l, bits := mask.Size()
 	if l == bits {
 		lip := make([]byte, len(fip))
 		copy(lip, fip)

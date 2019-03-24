@@ -68,3 +68,9 @@ func TestValidatorForIpv4_OverlapsWith(t *testing.T) {
 		t.Error("overlapping ip when it's not overlapped")
 	}
 }
+
+func TestValidatorForIpv4_IpGatewayIsinrange(t *testing.T) {
+	if !validatorGood.IpGatewayIsinrange() {
+		t.Error("ip is not in subnet")
+	}
+}

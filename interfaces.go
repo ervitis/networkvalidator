@@ -1,9 +1,12 @@
 package networkvalidator
 
-import "net"
+import (
+	"net"
+)
 
 type Validators interface {
 	Isinrange() bool
+	IpGatewayIsinrange() bool
 	OverlapsWith(ipnet *net.IPNet) bool
 	SubnetIsCorrect() bool
 	RangeNetworkIsCorrect() bool

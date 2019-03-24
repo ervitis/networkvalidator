@@ -19,7 +19,7 @@ func NewIpV4Data(ipaddress, netmask, ipgateway, ipsubnet, dnsprimary, dnsseconda
 	_, in, _ := net.ParseCIDR(fmt.Sprintf("%s/%d", d.IpAddress, o))
 
 	d.Cidr = in
-	d.ipRange = getiprange(in)
+	d.ipRange = getiprange(in, &d.Netmask)
 
 	return d
 }
@@ -65,6 +65,10 @@ func (v *ValidatorForIpv4) AllIpAreCorrect() bool {
 
 func (v *ValidatorForIpv4) CIDRIsCorrect() bool {
 	return v.data.Cidr != nil
+}
+
+func (v *ValidatorForIpv4) IpGatewayIsinrange() bool {
+	return v.data.Cidr.Contains(v.data.IpGateway)
 }
 
 func NewValidatorForIpv4(ipv4data *ipV4Data) Validators {
