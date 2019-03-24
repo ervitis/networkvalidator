@@ -11,14 +11,14 @@ func getiprange(ipnet *net.IPNet, mask *net.IPMask) *rangeIp {
 		return nil
 	}
 
-	fip := inc(ipnet.IP)
-
 	l, bits := mask.Size()
 	if l == bits {
-		lip := make([]byte, len(fip))
-		copy(lip, fip)
-		return &rangeIp{fip, lip}
+		lip := make([]byte, len(ipnet.IP))
+		copy(lip, ipnet.IP)
+		return &rangeIp{ipnet.IP, lip}
 	}
+
+	fip := inc(ipnet.IP)
 
 	fipint, bits, err := iptoint(fip)
 	if err != nil {
