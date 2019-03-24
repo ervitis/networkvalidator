@@ -11,8 +11,3 @@ cover:
 	go test -race -cover -coverprofile=cover.out ./...
 	go tool cover -html=cover.out
 	cat cover.out >> coverage.txt
-
-build:
-	export GO111MODULE=off && \
-	go mod download && \
-	go build -v .
